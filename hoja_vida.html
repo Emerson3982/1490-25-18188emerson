@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Vida</title>
+
+    <!-- Fuente elegante desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            padding: 40px;
+            background-color: #5a5655;
+            font-family: 'Montserrat', sans-serif;
+            color: #040303;
+        }
+
+        /* Título principal */
+        h1 {
+            font-size: 40px;
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: 1.5px;
+        }
+
+        /* Estilo de secciones tipo tarjeta */
+        .card {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadein 1s ease-in-out;
+        }
+
+        /* Animación de entrada suave */
+        @keyframes fadein {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Estilo de etiquetas dentro de la tarjeta */
+        .card p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        /* Estilo de subtítulos */
+        .section-title {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #34495e;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Hoja de Vida</h1>
+
+    <div class="card">
+        <div class="section-title">Información Personal</div>
+        <p><strong>Nombre:</strong>EMERSON EMANUEL GOMEZ ESCOBAR</p>
+        <p><strong>Carnet:</strong> 1490-25-18188</p>
+        <p><strong>Correo:</strong> egomeze8@.edu.gt </p>
+        <p><strong>Teléfono:</strong> +502-5186-2337</p>
+    </div>
+
+    <div class="card">
+        <div class="section-title">Formación Académica</div>
+        <p><strong>Universidad:</strong> Universidad MARIANO GALVEZ</p>
+        <p><strong>Carrera:</strong> Ingeniería en Sistemas</p>
+        <p><strong>Grado Actual:</strong> 1 SEMESTRE</p>
+    </div>
+
+    <div class="card">
+        <div class="section-title">Habilidades</div>
+        <p>IMPROVISAR,HTML.</p>
+        <p>Trabajo en equipo, creatividad, resolución de problemas</p>
+    </div>
+
+</body>
+</html>
+
+

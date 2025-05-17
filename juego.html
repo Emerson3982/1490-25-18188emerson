@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego: Rompe el Topo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      background-color: #f0f4f8;
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .game {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-gap: 20px;
+      justify-content: center;
+      margin: 20px auto;
+    }
+
+    .hole {
+      width: 100px;
+      height: 100px;
+      background-color: #ccc;
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .mole {
+      width: 80px;
+      height: 80px;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/616/616408.png');
+      background-size: cover;
+      display: none;
+    }
+
+    #score {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 20px;
+      font-size: 16px;
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #34495e;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎯 Rompe el Topo</h1>
+  <p>Haz clic en el topo para ganar puntos. ¡Rápido!</p>
+
+  <div class="game" id="game">
+    <div class="hole"><div class="mole"></div></div>
+    <div class="hole"><div class="mole"></div></div>
+    <div class="hole"><div class="mole"></div></div>
+    <div class="hole"><div class="mole"></div></div>
+    <div class="hole"><div class="mole"></div></div>
+    <div class="hole"><div class="mole"></div></div>
+  </div>
+
+  <div id="score">Puntaje: 0</div>
+  <button onclick="startGame()">Iniciar Juego</button>
+
+  <script>
+    const moles = document.querySelectorAll('.mole');
+    const scoreDisplay = document.getElementById('score');
+    let score = 0;
+    let currentMole = null;
+    let gameInterval;
+
+    function showRandomMole() {
+      moles.forEach(mole => mole.style.display = 'none');
+      const index = Math.floor(Math.random() * moles.length);
+      currentMole = moles[index];
+      currentMole.style.display = 'block';
+    }
+
+    moles.forEach(mole => {
+      mole.addEventListener('click', () => {
+        if (mole === currentMole) {
+          score++;
+          scoreDisplay.textContent = `Puntaje: ${score}`;
+          mole.style.display = 'none';
+        }
+      });
+    });
+
+    function startGame() {
+      score = 0;
+      scoreDisplay.textContent = `Puntaje: ${score}`;
+      clearInterval(gameInterval);
+      gameInterval = setInterval(showRandomMole, 800);
+      showRandomMole();
+
+      // Detener el juego después de 30 segundos
+      setTimeout(() => {
+        clearInterval(gameInterval);
+        alert(`¡Juego terminado! Tu puntaje fue: ${score}`);
+      }, 30000);
+    }
+  </script>
+
+</body>
+</html>
